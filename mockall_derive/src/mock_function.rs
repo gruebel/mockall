@@ -981,6 +981,7 @@ impl ToTokens for Common<'_> {
 
                 #[allow(clippy::ptr_arg)]
                 #[allow(clippy::ref_option)]
+                #[allow(clippy::ref_option_ref)]
                 fn matches #lg (&self, #( #argnames: &#predty, )*) -> bool {
                     self.matcher.lock().unwrap().matches(#(#argnames, )*)
                 }
@@ -1121,6 +1122,7 @@ impl ToTokens for CommonExpectationMethods<'_> {
             /// Validate this expectation's matcher.
             #[allow(clippy::ptr_arg)]
             #[allow(clippy::ref_option)]
+            #[allow(clippy::ref_option_ref)]
             fn matches #lg (&self, #(#argnames: &#predty, )*) -> bool {
                 self.common.matches(#(#argnames, )*)
             }
@@ -1723,6 +1725,7 @@ impl ToTokens for Matcher<'_> {
             impl #ig Matcher #tg #wc {
                 #[allow(clippy::ptr_arg)]
                 #[allow(clippy::ref_option)]
+                #[allow(clippy::ref_option_ref)]
                 fn matches #lg (&self, #( #argnames: &#predty, )*) -> bool {
                     match self {
                         Matcher::Always => true,
